@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 public class main {
     LinkedList<Integer> matriz = new LinkedList<>();
     boolean prop1, prop2, prop3;
+    int[][] Matriz = new int[4][4];
 
     int dimension=1, i=2;
 
@@ -15,16 +16,11 @@ public class main {
         main m=new main();
         m.prop1 = m.prop2 = m.prop3 = false;
         m.readMatriz();
-
-        m.matriz.add(1);
-        m.matriz.add(0);
-        m.matriz.add(0);
-        m.matriz.add(0);
-        m.matriz.add(1);
-        m.matriz.add(0);
-        m.matriz.add(0);
-        m.matriz.add(0);
-        m.matriz.add(1);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                m.matriz.add(m.Matriz[i][j]);
+            }
+        }
 
         if(m.propiedad2() && m.propiedad3())
             System.out.println("Es equivalente");
@@ -50,8 +46,10 @@ public class main {
                 }
         }
         for (i = 0; i < matriz.size(); i++) {
-            if (simetrica.get(i) != matriz.get(i))
+            if (simetrica.get(i) != matriz.get(i)) {
                 prop2 = false;
+                break;
+            }
             else
                 prop2 = true;
         }
@@ -68,8 +66,10 @@ public class main {
             transitiva.add(matriz.get(j)*matriz2.get(j));
 
         for (i = 0; i < matriz.size(); i++) {
-            if (transitiva.get(i) != matriz.get(i))
+            if (transitiva.get(i) != matriz.get(i)) {
                 prop3 = false;
+                break;
+            }
             else
                 prop3 = true;
         }
@@ -81,9 +81,9 @@ public class main {
         int residuo=1, i=2;
         while (residuo!=0){
             residuo=matriz.size()%i;
-            dimension=matriz.size()/i;
             i++;
         }
+        dimension=(int)Math.sqrt(matriz.size());
         residuo=1;
     }
 
@@ -91,7 +91,6 @@ public class main {
 
         try {
              //para que se almacene
-                int[][] Matriz = new int[4][4];
                 //para que lea el archivo
                 BufferedReader bf = new BufferedReader(new FileReader("archivo/matriz.txt"));
 
@@ -112,6 +111,5 @@ public class main {
         }
         return null;
     }
-
 
 }
