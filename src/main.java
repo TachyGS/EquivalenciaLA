@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
@@ -22,10 +24,42 @@ public class main {
             }
         }
 
-        if(m.propiedad2() && m.propiedad3())
+        if(m.propiedad2() && m.propiedad3() && m.propiedad1())
             System.out.println("Es equivalente");
+
         else
             System.out.println("No es equivalente");
+    }
+
+    public boolean propiedad1(){//reflexiva
+        int n = matriz.size();
+        int reflex[] = new int[n];
+        int[] diagonalPrinc = new int [Matriz.length];
+//saca la diagonal principal
+        for(int i=0; i< Matriz.length;i++) {
+            for(int j=0; j< Matriz[i].length;j++) {
+                if(i == j){
+                    diagonalPrinc[i] = Matriz[i][j];
+                    System.out.println("Diagonal principal"+diagonalPrinc[i]);
+                }//fin if
+            }//fin for j
+            reflex[i]=1;
+        }//fin for i
+//compara si son misma longitud y valores
+        if(diagonalPrinc.length == reflex.length){
+            for(int i=0 ; i < diagonalPrinc.length ; i++){
+                if(diagonalPrinc[i] == reflex[i]){
+                    System.out.println("iguales");
+                    prop1=false;
+                }
+
+                else
+                    System.out.println("pos no son iguales");
+            }
+
+        }
+
+        return prop1;
     }
 
     public boolean propiedad2(){
