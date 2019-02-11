@@ -20,7 +20,7 @@ public class main {
         m.readMatriz();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                m.matriz.add(m.Matriz[i][j]);
+                m.matriz.add(m.Matriz[i][j]);//
             }
         }
 
