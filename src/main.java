@@ -7,6 +7,20 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
+/*Integrantes:
+* García Sesento Nancy Leticia
+*Ramos Hernandez Juan José
+*
+ * Programa de equivalencia
+  * Dentro del archivo de texto "martriz.txt" que se encuentra dentro en la carpeta "archivo"
+  * se edita la matriz que es de 4x4, el programa evalua si se cumplen las propiedades
+  * para saber si una relación es equivalente;
+  * i)Reflexiva.
+  * ii)Simetrica.
+  * iii) Transitiva.
+  *
+  * */
+
 public class main {
     LinkedList<Integer> matriz = new LinkedList<>();
     boolean prop1, prop2, prop3;
@@ -45,7 +59,6 @@ public class main {
                     //diagonalPrinc[i] = Matriz[i][j];
                 }//fin if
             }//fin for j
-
         }//fin for i
         if(cont == Matriz.length){
             prop1=true;
@@ -54,7 +67,7 @@ public class main {
         return prop1;
     }
 
-    public boolean propiedad2(){
+    public boolean propiedad2(){ //Simetrica
         dimension=(int)Math.sqrt(matriz.size());
         LinkedList<Integer> simetrica = new LinkedList<>();
         int posicion=0, patron=0;
@@ -82,7 +95,7 @@ public class main {
         return prop2;
     }
 
-    public boolean propiedad3(){
+    public boolean propiedad3(){ //Transitiva
         LinkedList<Integer> matriz2 = new LinkedList<>();
         LinkedList<Integer> transitiva = new LinkedList<>();
         for (i = 0; i < matriz.size(); i++)
@@ -106,10 +119,10 @@ public class main {
     public int[][] readMatriz(){
 
         try {
-             //para que se almacene
+
                 //para que lea el archivo
                 BufferedReader bf = new BufferedReader(new FileReader("archivo/matriz.txt"));
-
+            //para que se almacene
                 int longitud=0;
                 String Linea = bf.readLine();
                 while(Linea != null && longitud<4){
