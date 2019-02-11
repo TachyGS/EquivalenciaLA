@@ -32,31 +32,23 @@ public class main {
     }
 
     public boolean propiedad1(){//reflexiva
-        int n = matriz.size();
-        int reflex[] = new int[n];
+        int cont=0;
         int[] diagonalPrinc = new int [Matriz.length];
 //saca la diagonal principal
         for(int i=0; i< Matriz.length;i++) {
             for(int j=0; j< Matriz[i].length;j++) {
                 if(i == j){
-                    diagonalPrinc[i] = Matriz[i][j];
-                    System.out.println("Diagonal principal"+diagonalPrinc[i]);
+                    if(Matriz[i][j] == 1){
+                        cont++;
+
+                    }
+                    //diagonalPrinc[i] = Matriz[i][j];
                 }//fin if
             }//fin for j
-            reflex[i]=1;
+
         }//fin for i
-//compara si son misma longitud y valores
-        if(diagonalPrinc.length == reflex.length){
-            for(int i=0 ; i < diagonalPrinc.length ; i++){
-                if(diagonalPrinc[i] == reflex[i]){
-                    System.out.println("iguales");
-                    prop1=false;
-                }
-
-                else
-                    System.out.println("pos no son iguales");
-            }
-
+        if(cont == Matriz.length){
+            prop1=true;
         }
 
         return prop1;
