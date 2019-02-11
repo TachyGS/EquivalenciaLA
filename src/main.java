@@ -29,7 +29,7 @@ public class main {
     }
 
     public boolean propiedad2(){
-        tamaño();
+        dimension=(int)Math.sqrt(matriz.size());
         LinkedList<Integer> simetrica = new LinkedList<>();
         int posicion=0, patron=0;
         for (int j = 0; j < matriz.size(); j++) {
@@ -75,16 +75,6 @@ public class main {
         }
 
         return prop3;
-    }
-
-    public void tamaño(){
-        int residuo=1, i=2;
-        while (residuo!=0){
-            residuo=matriz.size()%i;
-            i++;
-        }
-        dimension=(int)Math.sqrt(matriz.size());
-        residuo=1;
     }
 
     public int[][] readMatriz(){
